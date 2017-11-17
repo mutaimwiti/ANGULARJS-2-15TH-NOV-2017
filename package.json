@@ -1,0 +1,20 @@
+{
+  "name": "angularjs",
+  "version": "1.0.0",
+  "description": "Code sample",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "angularjs",
+    "angular",
+    "js"
+  ],
+  "author": "Mutai Mwiti",
+  "license": "MIT",
+  "devDependencies": {
+    "angular": "^1.6.6",
+    "webpack": "^3.8.1"
+  }
+}

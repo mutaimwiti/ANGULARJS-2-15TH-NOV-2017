@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple task manager</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body ng-app="app" ng-controller="appController">
+    <h3>Simple task manager</h3>
+    <form name="taskForm" ng-submit="taskForm.$valid && addTask()">
+        <label for="taskName">Enter  a task</label>
+        <input id="taskName" ng-model="taskName" ng-trim="true">
+    </form>
+
+    <div ng-if="pendingTasks().length">
+        <h3>Pending tasks</h3>
+        <table>
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th colspan="2">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="task in pendingTasks()">
+                <td>{{task.name}}</td>
+                <td>
+                    <button type="button" ng-click="finishTask(task)">Done</button>
+                    <button type="button" ng-click="removeTask(task)">Remove</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div ng-if="finishedTasks().length">
+        <h3>Finished tasks</h3>
+        <table>
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="task in finishedTasks()">
+                <td>{{task.name}}</td>
+                <td>
+                    <button type="button" ng-click="removeTask(task)">Remove</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="dist/vendor.bundle.js"></script>
+    <script src="dist/app.bundle.js"></script>
+</body>
+</html>
